@@ -70,6 +70,11 @@ const config: Config = {
           label: '综述',
         },
         {
+          type: 'doc',
+          docId: 'external_support',
+          label: '从外部运行 Autox 脚本',
+        },
+        {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
