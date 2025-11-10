@@ -71,11 +71,11 @@ ui.layout(
 - 子视图, 子控件: 布局里面的控件是这个布局的子控件/子视图。实际上布局里面不仅仅只能有控件，还可以是嵌套的布局。因此用子视图(Child View)更准确一些。在上面的例子中，按钮便是垂直布局的子控件。
 - 父视图，父布局：直接包含一个控件的布局是这个控件的父布局/父视图(Parent View)。在上面的例子中，垂直布局便是按钮的父布局。
 
-# 视图: View
+## 视图: View
 
 控件和布局都属于视图(View)。在这个章节中将介绍所有控件和布局的共有的属性和函数。例如属性背景，宽高等(所有控件和布局都能设置背景和宽高)，函数`click()`设置视图(View)被点击时执行的动作。
 
-## w
+### w
 
 View 的宽度，是属性`width`的缩写形式。可以设置的值为`*`, `auto`和具体数值。其中`*`表示宽度**尽量**填满父布局，而`auto`表示宽度将根据 View 的内容自动调整(自适应宽度)。例如：
 
@@ -107,7 +107,7 @@ ui.layout(
 );
 ```
 
-## h
+### h
 
 View 的高度，是属性`height`的缩写形式。可以设置的值为`*`, `auto`和具体数值。其中`*`表示宽度**尽量**填满父布局，而`auto`表示宽度将根据 View 的内容自动调整(自适应宽度)。
 
@@ -115,7 +115,7 @@ View 的高度，是属性`height`的缩写形式。可以设置的值为`*`, `a
 
 宽度属性也可以指定一个具体数值。例如`h="20"`，`h="20px"`等。不加单位的情况下默认单位为 dp，其他单位包括 px(像素), mm(毫米), in(英寸)。有关尺寸单位的更多内容，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## id
+### id
 
 View 的 id，用来区分一个界面下的不同控件和布局，一个界面的 id 在同一个界面下通常是唯一的，也就是一般不存在两个 View 有相同的 id。id 属性也是连接 xml 布局和 JavaScript 代码的桥梁，在代码中可以通过一个 View 的 id 来获取到这个 View，并对他进行操作(设置点击动作、设置属性、获取属性等)。例如：
 
@@ -133,7 +133,7 @@ toast(ui.ok.getText());
 这个例子中有一个按钮控件"确定"，id 属性为"ok"，那么我们可以在代码中使用`ui.ok`来获取他，再通过`getText()`函数获取到这个按钮控件的文本内容。
 另外这个例子中使用帧布局(frame)是因为，我们只有一个控件，因此用于最简单的布局帧布局。
 
-## gravity
+### gravity
 
 View 的"重力"。用于决定 View 的内容相对于 View 的位置，可以设置的值为:
 
@@ -162,7 +162,7 @@ ui.layout(
 
 这些属性是可以组合的，例如`gravity="right|bottom"`的 View 他的内容会在右下角。
 
-## layout_gravity
+### layout_gravity
 
 View 在布局中的"重力"，用于决定 View 本身在他的**父布局**的位置，可以设置的值和 gravity 属性相同。注意把这个属性和 gravity 属性区分开来。
 
@@ -187,7 +187,7 @@ ui.layout(
 
 要注意的是，layout_gravity 的属性不一定总是生效的，具体取决于布局的类别。例如不能让水平布局中的第一个子控件靠底部显示(否则和水平布局本身相违背)。
 
-## margin
+### margin
 
 margin 为 View 和其他 View 的间距，即外边距。margin 属性包括四个值:
 
@@ -224,7 +224,7 @@ ui.layout(
 
 有关 margin 属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## marginLeft
+### marginLeft
 
 View 的左外边距。如果该属性和 margin 属性指定的值冲突，则在后面的属性生效，前面的属性无效，例如`margin="20" marginLeft="10"`的左外边距为 10dp，其他外边距为 20dp。
 
@@ -242,19 +242,19 @@ ui.layout(
 
 ![ex-marginLeft](/images/ex-marginLeft.png)
 
-## marginRight
+### marginRight
 
 View 的右外边距。如果该属性和 margin 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## marginTop
+### marginTop
 
 View 的上外边距。如果该属性和 margin 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## marginBottom
+### marginBottom
 
 View 的下外边距。如果该属性和 margin 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## padding
+### padding
 
 View 和他的自身内容的间距，也就是内边距。注意和 margin 属性区分开来，margin 属性是 View 之间的间距，而 padding 是 View 和他自身内容的间距。举个例子，一个文本控件的 padding 也即文本控件的边缘和他的文本内容的间距，paddingLeft 即文本控件的左边和他的文本内容的间距。
 
@@ -285,37 +285,37 @@ ui.layout(
 
 ![ex-padding](/images/ex-padding.png)
 
-## paddingLeft
+### paddingLeft
 
 View 的左内边距。如果该属性和 padding 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## paddingRight
+### paddingRight
 
 View 的右内边距。如果该属性和 padding 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## paddingTop
+### paddingTop
 
 View 的上内边距。如果该属性和 padding 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## paddingBottom
+### paddingBottom
 
 View 的下内边距。如果该属性和 padding 属性指定的值冲突，则在后面的属性生效，前面的属性无效。
 
-## bg
+### bg
 
-View 的背景。其值可以是一个链接或路径指向的图片，或者 RGB 格式的颜色，或者其他背景。具体参见[Drawables](#draw)。
+View 的背景。其值可以是一个链接或路径指向的图片，或者 RGB 格式的颜色，或者其他背景。具体参见[Drawables](#drawables)。
 
 例如，`bg="#00ff00"`设置背景为绿色，`bg="file:///sdcard/1.png"`设置背景为图片"1.png"，`bg="?attr/selectableItemBackground"`设置背景为点击时出现的波纹效果(可能需要同时设置`clickable="true"`才生效)。
 
-## alpha
+### alpha
 
 View 的透明度，其值是一个 0~1 之间的小数，0 表示完全透明，1 表示完全不透明。例如`alpha="0.5"`表示半透明。
 
-## foreground
+### foreground
 
 View 的前景。前景即在一个 View 的内容上显示的内容，可能会覆盖掉 View 本身的内容。其值和属性 bg 的值类似。
 
-## minHeight
+### minHeight
 
 View 的最小高度。该值不总是生效的，取决于其父布局是否有足够的空间容纳。
 
@@ -323,7 +323,7 @@ View 的最小高度。该值不总是生效的，取决于其父布局是否有
 
 有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## minWidth
+### minWidth
 
 View 的最小宽度。该值不总是生效的，取决于其父布局是否有足够的空间容纳。
 
@@ -331,7 +331,7 @@ View 的最小宽度。该值不总是生效的，取决于其父布局是否有
 
 有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## visibility
+### visibility
 
 View 的可见性，该属性可以决定 View 是否显示出来。其值可以为：
 
@@ -339,13 +339,13 @@ View 的可见性，该属性可以决定 View 是否显示出来。其值可以
 - `visible` 可见。默认情况下 View 都是可见的。
 - `invisible` 不可见，但仍然占用位置。
 
-## rotation
+### rotation
 
 View 的旋转角度。通过该属性可以让这个 View 顺时针旋转一定的角度。例如`rotation="90"`可以让他顺时针旋转 90 度。
 
 如果要设置旋转中心，可以通过`transformPivotX`, `transformPivotY`属性设置。默认的旋转中心为 View 的中心。
 
-## transformPivotX
+### transformPivotX
 
 View 的变换中心坐标 x。用于 View 的旋转、放缩等变换的中心坐标。例如`transformPivotX="10"`。
 
@@ -353,7 +353,7 @@ View 的变换中心坐标 x。用于 View 的旋转、放缩等变换的中心�
 
 有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## transformPivotY
+### transformPivotY
 
 View 的变换中心坐标 y。用于 View 的旋转、放缩等变换的中心坐标。例如`transformPivotY="10"`。
 
@@ -361,35 +361,35 @@ View 的变换中心坐标 y。用于 View 的旋转、放缩等变换的中心�
 
 有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## style
+### style
 
 设置 View 的样式。不同控件有不同的可选的内置样式。具体参见各个控件的说明。
 
 需要注意的是，style 属性只支持安卓 5.1 及其以上。
 
-# 文本控件: text
+## 文本控件: text
 
 文本控件用于显示文本，可以控制文本的字体大小，字体颜色，字体等。
 
 以下介绍该控件的主要属性和方法，如果要查看他的所有属性和方法，请阅读[TextView](http://www.zhdoc.net/android/reference/android/widget/TextView.html)。
 
-## text
+### text
 
 设置文本的内容。例如`text="一段文本"`。
 
-## textColor
+### textColor
 
 设置字体的颜色，可以是 RGB 格式的颜色(例如#ff00ff)，或者颜色名称(例如 red, green 等)，具体参见[颜色](#颜色)。
 
 示例, 红色字体：`<text text="红色字体" textColor="red"/>`
 
-## textSize
+### textSize
 
 设置字体的大小，单位一般是 sp。按照 Material Design 的规范，正文字体大小为 14sp，标题字体大小为 18sp，次标题为 16sp。
 
 示例，超大字体: `<text text="超大字体" textSize="40sp"/>`
 
-## textStyle
+### textStyle
 
 设置字体的样式，比如斜体、粗体等。可选的值为：
 
@@ -401,7 +401,7 @@ View 的变换中心坐标 y。用于 View 的旋转、放缩等变换的中心�
 
 例如，粗体：`<text textStyle="bold" textSize="18sp" text="这是粗体"/>
 
-## lines
+### lines
 
 设置文本控件的行数。即使文本内容没有达到设置的行数，控件也会留出相应的宽度来显示空白行；如果文本内容超出了设置的行数，则超出的部分不会显示。
 
@@ -418,11 +418,11 @@ ui.layout(
 ui.myText.setText("第一行\n第二行\n第三行\n第四行");
 ```
 
-## maxLines
+### maxLines
 
 设置文本控件的最大行数。
 
-## typeface
+### typeface
 
 设置字体。可选的值为：
 
@@ -433,7 +433,7 @@ ui.myText.setText("第一行\n第二行\n第三行\n第四行");
 
 示例，等宽字体: `<text text="等宽字体" typeface="monospace"/>`
 
-## ellipsize
+### ellipsize
 
 设置文本的省略号位置。文本的省略号会在文本内容超出文本控件时显示。可选的值为：
 
@@ -443,13 +443,13 @@ ui.myText.setText("第一行\n第二行\n第三行\n第四行");
 - `none` 不显示省略号
 - `start` 在文本开头显示省略号
 
-## ems
+### ems
 
 当设置该属性后,TextView 显示的字符长度（单位是 em）,超出的部分将不显示，或者根据 ellipsize 属性的设置显示省略号。
 
 例如，限制文本最长为 5em: `<text ems="5" ellipsize="end" text="很长很长很长很长很长很长很长的文本"/>
 
-## autoLink
+### autoLink
 
 控制是否自动找到 url 和电子邮件地址等链接，并转换为可点击的链接。默认值为“none”。
 
@@ -512,7 +512,7 @@ ui.ok.click(function () {
 
 除此之外，输入框控件有另外一些主要属性(虽然这些属性对于文本控件也是可用的但一般只用于输入框控件)：
 
-## hint
+### hint
 
 输入提示。这个提示会在输入框为空的时候显示出来。如图所示:
 
@@ -529,15 +529,15 @@ ui.layout(
 );
 ```
 
-## textColorHint
+### textColorHint
 
 指定输入提示的字体颜色。
 
-## textSizeHint
+### textSizeHint
 
 指定输入提示的字体大小。
 
-## inputType
+### inputType
 
 指定输入框可以输入的文本类型。可选的值为以下值及其用"|"的组合:
 
@@ -575,41 +575,41 @@ ui.layout(
 
 例如，想指定一个输入框的输入类型为小数数字，为: `<input inputType="number|numberDecimal"/>`
 
-## password
+### password
 
 指定输入框输入框是否为密码输入框。默认为`false`。
 
 例如：`<input password="true"/>`
 
-## numeric
+### numeric
 
 指定输入框输入框是否为数字输入框。默认为`false`。
 
 例如：`<input numeric="true"/>`
 
-## phoneNumber
+### phoneNumber
 
 指定输入框输入框是否为电话号码输入框。默认为`false`。
 
 例如：`<input phoneNumber="true"/>`
 
-## digits
+### digits
 
 指定输入框可以输入的字符。例如，要指定输入框只能输入"1234567890+-"，为`<input digits="1234567890+-"/>`。
 
-## singleLine
+### singleLine
 
 指定输入框是否为单行输入框。默认为`false`。您也可以通过`lines="1"`来指定单行输入框。
 
 例如：`<input singleLine="true"/>`
 
-# 图片控件: img
+## 图片控件: img
 
 图片控件用于显示来自网络、本地或者内嵌数据的图片，并可以指定图片以圆角矩形、圆形等显示。但是不能用于显示 gif 动态图。
 
 这里只介绍他的主要方法和属性，如果要查看他的所有方法和属性，阅读[ImageView](http://www.zhdoc.net/android/reference/android/widget/ImageView.html)。
 
-## src
+### src
 
 使用一个 Uri 指定图片的来源。可以是图片的地址(http://....)，本地路径(file://....)或者 base64 数据("data:image/png;base64,...")。
 
@@ -642,13 +642,13 @@ ui.layout(
 );
 ```
 
-## tint
+### tint
 
 图片着色，其值是一个颜色名称或 RGB 颜色值。使用该属性会将图片中的非透明区域都涂上同一颜色。可以用于改变图片的颜色。
 
 例如，对于上面的 base64 的图片: `<img w="40" h="40" tint="red" src="data:image/png;base64,..."/>`，则钱包图标颜色会变成红色。
 
-## scaleType
+### scaleType
 
 控制图片根据图片控件的宽高放缩时的模式。可选的值为：
 
@@ -663,7 +663,7 @@ ui.layout(
 
 默认的 scaleType 为`fitCenter`；除此之外最常用的是`fitXY`， 他能使图片放缩到控件一样的大小，但图片可能会变形。
 
-## radius
+### radius
 
 图片控件的半径。如果设置为控件宽高的一半并且控件的宽高相同则图片将剪切为圆形显示；否则图片为圆角矩形显示，半径即为四个圆角的半径，也可以通过`radiusTopLeft`, `radiusTopRight`, `radiusBottomLeft`, `radiusBottomRight`等属性分别设置四个圆角的半径。
 
@@ -671,38 +671,38 @@ ui.layout(
 
 有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## radiusTopLeft
+### radiusTopLeft
 
 图片控件的左上角圆角的半径。有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## radiusTopRight
+### radiusTopRight
 
 图片控件的右上角圆角的半径。有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## radiusBottomLeft
+### radiusBottomLeft
 
 图片控件的左下角圆角的半径。有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## radiusBottomRight
+### radiusBottomRight
 
 图片控件的右下角圆角的半径。有关该属性的单位，参见[尺寸的单位: Dimension](#尺寸的单位-dimension)。
 
-## borderWidth
+### borderWidth
 
 图片控件的边框宽度。用于在图片外面显示一个边框，边框会随着图片控件的外形(圆角等)改变而相应变化。
 例如, 圆角矩形带灰色边框的 Auto.js 图标：`<img w="100" h="100" radius="20" borderWidth="5" borderColor="gray" bg="white" src="http://www.autojs.org/assets/uploads/profile/3-profileavatar.png" />`
 
-## borderColor
+### borderColor
 
 图片控件的边框颜色。
 
-## circle
+### circle
 
 指定该图片控件的图片是否剪切为圆形显示。如果为`true`，则图片控件会使其宽高保持一致(如果宽高不一致，则保持高度等于宽度)并使圆形的半径为宽度的一半。
 
 例如，圆形的 Auto.js 图标：`<img w="100" h="100" circle="true" bg="white" src="http://www.autojs.org/assets/uploads/profile/3-profileavatar.png" />`
 
-# 垂直布局: vertical
+## 垂直布局: vertical
 
 垂直布局是一种比较简单的布局，会把在它里面的控件按照垂直方向依次摆放，如下图所示：
 
@@ -720,7 +720,7 @@ ui.layout(
 
 ——————
 
-## layout_weight
+### layout_weight
 
 垂直布局中的控件可以通过`layout_weight`属性来控制控件高度占垂直布局高度的比例。如果为一个控件指定`layout_weight`, 则这个控件的高度=垂直布局剩余高度 \* layout_weight / weightSum；如果不指定 weightSum, 则 weightSum 为所有子控件的 layout_weight 之和。所谓"剩余高度"，指的是垂直布局中减去没有指定 layout_weight 的控件的剩余高度。
 例如:
@@ -805,11 +805,11 @@ ui.layout(
 
 ————————————————————————————
 
-## layout_weight
+### layout_weight
 
 水平布局中也可以使用 layout_weight 属性来控制子控件的**宽度**占父布局的比例。和垂直布局中类似，不再赘述。
 
-# 线性布局: linear
+## 线性布局: linear
 
 实际上，垂直布局和水平布局都属于线性布局。线性布局有一个 orientation 的属性，用于指定布局的方向，可选的值为`vertical`和`horizontal`。
 
@@ -817,51 +817,51 @@ ui.layout(
 
 线性布局的默认方向是横向的，因此，一个没有指定 orientation 属性的线性布局就是横向布局。
 
-# 帧布局: frame
+## 帧布局: frame
 
 帧布局
 
-# 相对布局: relative
+## 相对布局: relative
 
-# 勾选框控件: checkbox
+## 勾选框控件: checkbox
 
-# 选择框控件: radio
+## 选择框控件: radio
 
-# 选择框布局: radiogroup
+## 选择框布局: radiogroup
 
-# 开关控件: switch
+## 开关控件: switch
 
-# 进度条控件: progressbar
+## 进度条控件: progressbar
 
-# 拖动条控件: seekbar
+## 拖动条控件: seekbar
 
-# 下来菜单控件: spinner
+## 下来菜单控件: spinner
 
-# 时间选择控件: timepicker
+## 时间选择控件: timepicker
 
-# 日期选择控件: datepicker
+## 日期选择控件: datepicker
 
-# 浮动按钮控件: fab
+## 浮动按钮控件: fab
 
-# 标题栏控件: toolbar
+## 标题栏控件: toolbar
 
-# 卡片: card
+## 卡片: card
 
-# 抽屉布局: drawer
+## 抽屉布局: drawer
 
-# 列表: list
+## 列表: list
 
-# Tab: tab
+## Tab: tab
 
-# ui
+## ui
 
-## ui.layout(xml)
+### ui.layout(xml)
 
 - `xml` \{XML} | \{string} 布局 XML 或者 XML 字符串
 
 将布局 XML 渲染为视图（View）对象， 并设置为当前视图。
 
-## ui.inflate(xml[, parent = null, attachToParent = false])
+### ui.inflate(xml[, parent = null, attachToParent = false])
 
 - `xml` \{string} | \{XML} 布局 XML 或者 XML 字符串
 - `parent` \{View} 父视图
@@ -890,7 +890,7 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-## ui.findView(id)
+### ui.findView(id)
 
 - `id` \{string} View 的 ID
 - 返回 \{View}
@@ -899,23 +899,23 @@ for (let i = 0; i < 3; i++) {
 
 一般我们都是通过`ui.xxx`来获取 id 为 xxx 的控件，如果 xxx 是一个 ui 已经有的属性，就可以通过`ui.findView()`来获取这个控件
 
-## ui.finish()
+### ui.finish()
 
 结束当前活动并销毁界面。
 
-## ui.setContentView(view)
+### ui.setContentView(view)
 
 -`view` \{View}
 
 将视图对象设置为当前视图。
 
-## ui.run(callback)
+### ui.run(callback)
 
 -`callback` \{Function} 回调函数 -返回 \{any} callback 的执行结果
 
 将`callback`在 UI 线程中执行。如果当前已经在 UI 线程中，则直接执行`callback`；否则将`callback`抛到 UI 线程中执行（加到 UI 线程的消息循环的末尾），**并等待 callback 执行结束(阻塞当前线程)**。
 
-## ui.post(callback[, daley])
+### ui.post(callback[, daley])
 
 - `callback` \{Function} 回调函数
 - `delay `\{number} 延迟，单位毫秒
@@ -947,7 +947,7 @@ threads.start({
 });
 ```
 
-## ui.statusBarColor(color)
+### ui.statusBarColor(color)
 
 - `color` \{string | number} 颜色
 
@@ -958,12 +958,12 @@ threads.start({
 ui.statusBarColor("#000000");
 ```
 
-## ui.showPopupMenu(view, menu)
+### ui.showPopupMenu(view, menu)
 
-# 尺寸的单位: Dimension
+## 尺寸的单位: Dimension
 
-# Drawables
+## Drawables
 
-# 颜色
+## 颜色
 
 **(完善中...)**

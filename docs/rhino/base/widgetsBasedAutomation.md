@@ -67,13 +67,13 @@ v7.1.2 新增
 
 使用无障碍权限异步截图，此方法不阻塞线程，返回更快
 
-# SimpleActionAutomator
+## SimpleActionAutomator
 
 > 稳定性: 稳定
 
 SimpleActionAutomator 提供了一些模拟简单操作的函数，例如点击文字、模拟按键等。这些函数可以直接作为全局函数使用。
 
-## click(text[, i])
+### click(text[, i])
 
 - `text` \{string} 要点击的文本
 - `i` \{number} 如果相同的文本在屏幕中出现多次，则 i 表示要点击第几个文本, i 从 0 开始计算
@@ -93,7 +93,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 > 文本所在区域指的是，从文本处向其父视图寻找，直至发现一个可点击的部件为止。
 
-## click(left, top, bottom, right)
+### click(left, top, bottom, right)
 
 - `left` \{number} 要点击的长方形区域左边与屏幕左边的像素距离
 - `top` \{number} 要点击的长方形区域上边与屏幕上边的像素距离
@@ -110,7 +110,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 通过无障碍服务录制脚本会生成该语句。
 
-## longClick(text[, i]))
+### longClick(text[, i]))
 
 - `text` \{string} 要长按的文本
 - `i` \{number} 如果相同的文本在屏幕中出现多次，则 i 表示要长按第几个文本, i 从 0 开始计算
@@ -119,7 +119,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 当不指定参数 i 时则会尝试点击屏幕上出现的所有文字 text 并返回是否全部长按成功。
 
-## scrollUp([i])
+### scrollUp([i])
 
 - `i` \{number} 要滑动的控件序号
 
@@ -129,7 +129,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 参数为一个整数 i 时会找到第 i + 1 个可滑动控件滑动。例如`scrollUp(0)`为滑动第一个可滑动控件。
 
-## scrollDown([i])
+### scrollDown([i])
 
 - `i` \{number} 要滑动的控件序号
 
@@ -139,7 +139,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 参数为一个整数 i 时会找到第 i + 1 个可滑动控件滑动。例如`scrollUp(0)`为滑动第一个可滑动控件。
 
-## setText([i, ]text)
+### setText([i, ]text)
 
 - i \{number} 表示要输入的为第 i + 1 个输入框
 - text \{string} 要输入的文本
@@ -150,7 +150,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 这里的输入文本的意思是，把输入框的文本置为 text，而不是在原来的文本上追加。
 
-## input([i, ]text)
+### input([i, ]text)
 
 - i \{number} 表示要输入的为第 i + 1 个输入框
 - text \{string} 要输入的文本
@@ -159,7 +159,7 @@ i 是从 0 开始计算的, 也就是, `click("啦啦啦", 0)`表示点击屏幕
 
 不加参数 i 则会把所有输入框的文本追加内容 text。例如`input("测试")`。
 
-# UiSelector
+## UiSelector
 
 UiSelector 即选择器，用于通过各种条件选取屏幕上的控件，再对这些控件进行点击、长按等动作。这里需要先简单介绍一下控件和界面的相关知识。
 
@@ -254,7 +254,7 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 选择器的入门教程暂且要这里，更多信息可以查看下面的文档和选择器进阶。
 
-## selector()
+### selector()
 
 - 返回 \{UiSelector}
 
@@ -264,7 +264,7 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 这样的 API 设计会污染全局变量，后续可能会支持"去掉这些全局函数而使用 By.\*\*\*"的选项。
 
-## UiSelector.text(str)
+### UiSelector.text(str)
 
 - `str` \{string} 控件文本
 - 返回 \{UiSelector} 返回选择器自身以便链式调用
@@ -273,7 +273,7 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 控件的 text(文本)属性是文本控件上的显示的文字，例如微信左上角的"微信"文本。
 
-## UiSelector.textContains(str)
+### UiSelector.textContains(str)
 
 - `str` \{string} 要包含的字符串
 
@@ -281,7 +281,7 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 这是一个比较有用的条件，例如 QQ 动态页和微博发现页上方的"大家都在搜...."的控件可以用`textContains("大家都在搜").findOne()`来获取。
 
-## UiSelector.textStartsWith(prefix)
+### UiSelector.textStartsWith(prefix)
 
 - `prefix` \{string} 前缀
 
@@ -289,13 +289,13 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 这也是一个比较有用的条件，例如要找出 Auto.js 脚本列表中名称以"QQ"开头的脚本的代码为`textStartsWith("QQ").find()`。
 
-## UiSelector.textEndsWith(suffix)
+### UiSelector.textEndsWith(suffix)
 
 - suffix \{string} 后缀
 
 为当前选择器附加控件"text 需要以 suffix 结束"的筛选条件。
 
-## UiSelector.textMatches(reg)
+### UiSelector.textMatches(reg)
 
 - `reg` \{string} | \{Regex} 要满足的正则表达式。
 
@@ -305,7 +305,7 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 需要注意的是，如果正则表达式是字符串，则需要使用`\\`来表达`\`(也即 Java 正则表达式的形式)，例如`textMatches("\\d+")`匹配多位数字；但如果使用 JavaScript 语法的正则表达式则不需要，例如`textMatches(/\d+/)`。但如果使用字符串的正则表达式则该字符串不能以"/"同时以"/"结束，也即不能写诸如`textMatches("/\\d+/")`的表达式，否则会被开头的"/"和结尾的"/"会被忽略。
 
-## UiSelector.desc(str)
+### UiSelector.desc(str)
 
 - `str` \{string} 控件文本
 - 返回 \{UiSelector} 返回选择器自身以便链式调用
@@ -316,25 +316,25 @@ id("recent_chat_list").className("AbsListView").findOne().scrollForward();
 
 desc 属性同样是定位控件的利器。
 
-## UiSelector.descContains(str)
+### UiSelector.descContains(str)
 
 - `str` \{string} 要包含的字符串
 
 为当前选择器附加控件"desc 需要包含字符串 str"的筛选条件。
 
-## UiSelector.descStartsWith(prefix)
+### UiSelector.descStartsWith(prefix)
 
 - `prefix` \{string} 前缀
 
 为当前选择器附加控件"desc 需要以 prefix 开头"的筛选条件。
 
-## UiSelector.descEndsWith(suffix)
+### UiSelector.descEndsWith(suffix)
 
 - `suffix` \{string} 后缀
 
 为当前选择器附加控件"desc 需要以 suffix 结束"的筛选条件。
 
-## UiSelector.descMatches(reg)
+### UiSelector.descMatches(reg)
 
 - `reg` \{string} | \{Regex} 要满足的正则表达式。
 
@@ -344,7 +344,7 @@ desc 属性同样是定位控件的利器。
 
 需要注意的是，如果正则表达式是字符串，则需要使用`\\`来表达`\`(也即 Java 正则表达式的形式)，例如`textMatches("\\d+")`匹配多位数字；但如果使用 JavaScript 语法的正则表达式则不需要，例如`textMatches(/\d+/)`。但如果使用字符串的正则表达式则该字符串不能以"/"同时以"/"结束，也即不能写诸如`textMatches("/\\d+/")`的表达式，否则会被开头的"/"和结尾的"/"会被忽略。
 
-## UiSelector.id(resId)
+### UiSelector.id(resId)
 
 - `resId` \{string} 控件的 id，以"包名:id/"开头，例如"com.tencent.mm:id/send_btn"。**也可以不指定包名**，这时会以当前正在运行的应用的包名来补全 id。例如 id("send_btn"),在 QQ 界面想当于 id("com.tencent.mobileqq:id/send_btn")。
 
@@ -354,25 +354,25 @@ desc 属性同样是定位控件的利器。
 
 在 QQ 界面经常会出现多个 id 为"name"的控件，在微信上则每个版本的 id 都会变化。对于这些软件而言比较难用 id 定位控件。
 
-## UiSelector.idContains(str)
+### UiSelector.idContains(str)
 
 - `str` \{string} id 要包含的字符串
 
 为当前选择器附加控件"id 包含字符串 str"的筛选条件。比较少用。
 
-## UiSelector.idStartsWith(prefix)
+### UiSelector.idStartsWith(prefix)
 
 - `prefix` \{string} id 前缀
 
 为当前选择器附加"id 需要以 prefix 开头"的筛选条件。比较少用。
 
-## UiSelector.idEndsWith(suffix)
+### UiSelector.idEndsWith(suffix)
 
 - `suffix` \{string} id 后缀
 
 为当前选择器附加"id 需要以 suffix 结束"的筛选条件。比较少用。
 
-## UiSelector.idMatches(reg)
+### UiSelector.idMatches(reg)
 
 - reg \{Regex} | \{string} id 要满足的正则表达式
 
@@ -384,7 +384,7 @@ desc 属性同样是定位控件的利器。
 idMatches("[a-zA-Z]+");
 ```
 
-## UiSelector.className(str)
+### UiSelector.className(str)
 
 - `str` \{string} 控件文本
 - 返回 \{UiSelector} 返回选择器自身以便链式调用
@@ -408,25 +408,25 @@ idMatches("[a-zA-Z]+");
 - `android.widget.RelativeLayout` 相对布局
 - `android.support.v7.widget.RecyclerView` 通常也是列表控件
 
-## UiSelector.classNameContains(str)
+### UiSelector.classNameContains(str)
 
 - `str` \{string} 要包含的字符串
 
 为当前选择器附加控件"className 需要包含字符串 str"的筛选条件。
 
-## UiSelector.classNameStartsWith(prefix)
+### UiSelector.classNameStartsWith(prefix)
 
 - `prefix` \{string} 前缀
 
 为当前选择器附加控件"className 需要以 prefix 开头"的筛选条件。
 
-## UiSelector.classNameEndsWith(suffix)
+### UiSelector.classNameEndsWith(suffix)
 
 - `suffix` \{string} 后缀
 
 为当前选择器附加控件"className 需要以 suffix 结束"的筛选条件。
 
-## UiSelector.classNameMatches(reg)
+### UiSelector.classNameMatches(reg)
 
 - `reg` \{string} | \{Regex} 要满足的正则表达式。
 
@@ -436,7 +436,7 @@ idMatches("[a-zA-Z]+");
 
 需要注意的是，如果正则表达式是字符串，则需要使用`\\`来表达`\`(也即 Java 正则表达式的形式)，例如`textMatches("\\d+")`匹配多位数字；但如果使用 JavaScript 语法的正则表达式则不需要，例如`textMatches(/\d+/)`。但如果使用字符串的正则表达式则该字符串不能以"/"同时以"/"结束，也即不能写诸如`textMatches("/\\d+/")`的表达式，否则会被开头的"/"和结尾的"/"会被忽略。
 
-## UiSelector.packageName(str)
+### UiSelector.packageName(str)
 
 - `str` \{string} 控件文本
 - 返回 \{UiSelector} 返回选择器自身以便链式调用
@@ -447,25 +447,25 @@ idMatches("[a-zA-Z]+");
 
 要查看一个应用的包名，可以用函数`app.getPackageName()`获取，例如`toast(app.getPackageName("微信"))`。
 
-## UiSelector.packageNameContains(str)
+### UiSelector.packageNameContains(str)
 
 - `str` \{string} 要包含的字符串
 
 为当前选择器附加控件"packageName 需要包含字符串 str"的筛选条件。
 
-## UiSelector.packageNameStartsWith(prefix)
+### UiSelector.packageNameStartsWith(prefix)
 
 - `prefix` \{string} 前缀
 
 为当前选择器附加控件"packageName 需要以 prefix 开头"的筛选条件。
 
-## UiSelector.packageNameEndsWith(suffix)
+### UiSelector.packageNameEndsWith(suffix)
 
 - `suffix` \{string} 后缀
 
 为当前选择器附加控件"packageName 需要以 suffix 结束"的筛选条件。
 
-## UiSelector.packageNameMatches(reg)
+### UiSelector.packageNameMatches(reg)
 
 - `reg` \{string} | \{Regex} 要满足的正则表达式。
 
@@ -473,7 +473,7 @@ idMatches("[a-zA-Z]+");
 
 有关正则表达式，可以查看[正则表达式 - 菜鸟教程](http://www.runoob.com/Stringp/Stringp-example.html)。
 
-## UiSelector.bounds(left, top, right, buttom)
+### UiSelector.bounds(left, top, right, buttom)
 
 - `left` \{number} 控件左边缘与屏幕左边的距离
 - `top` \{number} 控件上边缘与屏幕上边的距离
@@ -486,7 +486,7 @@ idMatches("[a-zA-Z]+");
 
 可以看到 bounds 属性为(951, 67, 1080, 196)，此时使用代码`bounds(951, 67, 1080, 196).clickable().click()`即可点击该控件。
 
-## UiSelector.boundsInside(left, top, right, buttom)
+### UiSelector.boundsInside(left, top, right, buttom)
 
 - `left` \{number} 范围左边缘与屏幕左边的距离
 - `top` \{number} 范围上边缘与屏幕上边的距离
@@ -506,7 +506,7 @@ log(w.text());
 
 其中我们使用了`device.width`来获取屏幕宽度，`device.height`来获取屏幕高度。
 
-## UiSelector.boundsContains(left, top, right, buttom)
+### UiSelector.boundsContains(left, top, right, buttom)
 
 - `left` \{number} 范围左边缘与屏幕左边的距离
 - `top` \{number} 范围上边缘与屏幕上边的距离
@@ -524,7 +524,7 @@ var w = boundsContains(500, 300, device.width - 500, device.height - 300)
 w.click();
 ```
 
-## UiSelector.drawingOrder(order)
+### UiSelector.drawingOrder(order)
 
 - order \{number} 控件在父视图中的绘制顺序
 
@@ -534,7 +534,7 @@ drawingOrder 为一个控件在父控件中的绘制顺序，通常可以用于�
 
 但该属性在 Android 7.0 以上才能使用。
 
-## UiSelector.clickable([b = true])
+### UiSelector.clickable([b = true])
 
 - `b` \{Boolean} 表示控件是否可点击
 
@@ -542,31 +542,31 @@ drawingOrder 为一个控件在父控件中的绘制顺序，通常可以用于�
 
 需要注意的是，可以省略参数`b`而表示选择那些可以点击的控件，例如`className("ImageView").clickable()`表示可以点击的图片控件的条件，`className("ImageView").clickable(false)`表示不可点击的图片控件的条件。
 
-## UiSelector.longClickable([b = true])
+### UiSelector.longClickable([b = true])
 
 - `b` \{Boolean} 表示控件是否可长按
 
 为当前选择器附加控件是否可长按的条件。
 
-## UiSelector.checkable([b = true])
+### UiSelector.checkable([b = true])
 
 - `b` \{Boolean} 表示控件是否可勾选
 
 为当前选择器附加控件是否可勾选的条件。勾选通常是对于勾选框而言的，例如图片多选时左上角通常有一个勾选框。
 
-## UiSelector.selected([b = true])
+### UiSelector.selected([b = true])
 
 - `b` \{Boolean} 表示控件是否被选
 
 为当前选择器附加控件是否已选中的条件。被选中指的是，例如 QQ 聊天界面点击下方的"表情按钮"时，会出现自己收藏的表情，这时"表情按钮"便处于选中状态，其 selected 属性为 true。
 
-## UiSelector.enabled([b = true])
+### UiSelector.enabled([b = true])
 
 - `b` \{Boolean} 表示控件是否已启用
 
 为当前选择器附加控件是否已启用的条件。大多数控件都是启用的状态(enabled 为 true)，处于“禁用”状态通常是灰色并且不可点击。
 
-## UiSelector.scrollable([b = true])
+### UiSelector.scrollable([b = true])
 
 - `b` \{Boolean} 表示控件是否可滑动
 
@@ -582,19 +582,19 @@ className("android.support.v7.widget.RecyclerView")
 //或者classNameEndsWith("RecyclerView").scrollable().findOne().scrollForward();
 ```
 
-## UiSelector.editable([b = true])
+### UiSelector.editable([b = true])
 
 - `b` \{Boolean} 表示控件是否可编辑
 
 为当前选择器附加控件是否可编辑的条件。一般来说可编辑的控件为输入框(EditText)，但不是所有的输入框(EditText)都可编辑。
 
-## UiSelector.multiLine([b = true])
+### UiSelector.multiLine([b = true])
 
 - b \{Boolean} 表示文本或输入框控件是否是多行显示的
 
 为当前选择器附加控件是否文本或输入框控件是否是多行显示的条件。
 
-## UiSelector.findOne()
+### UiSelector.findOne()
 
 - 返回 [UiObject](#uiobject)
 
@@ -606,7 +606,7 @@ className("android.support.v7.widget.RecyclerView")
 
 另外，如果屏幕上有多个满足条件的控件，`findOne()`采用深度优先搜索(DFS)，会返回该搜索算法找到的第一个控件。注意控件找到的顺序有时会起到作用。
 
-## UiSelector.findOne(timeout)
+### UiSelector.findOne(timeout)
 
 - `timeout` \{number} 搜索的超时时间，单位毫秒
 - 返回 [UiObject](#uiobject)
@@ -631,13 +631,13 @@ if (w != null) {
 }
 ```
 
-## UiSelector.findOnce()
+### UiSelector.findOnce()
 
 - 返回 [UiObject](#uiobject)
 
 根据当前的选择器所确定的筛选条件，对屏幕上的控件进行搜索，如果找到符合条件的控件则返回该控件；否则返回`null`。
 
-## UiSelector.findOnce(i)
+### UiSelector.findOnce(i)
 
 - `i` \{number} 索引
 
@@ -645,7 +645,7 @@ if (w != null) {
 
 注意这里的控件次序，是搜索算法深度优先搜索(DSF)决定的。
 
-## UiSelector.find()
+### UiSelector.find()
 
 - 返回 [UiCollection](#uicollection)
 
@@ -664,7 +664,7 @@ if (c.empty()) {
 }
 ```
 
-## UiSelector.untilFind()
+### UiSelector.untilFind()
 
 - 返回 [UiCollection](#uicollection)
 
@@ -672,7 +672,7 @@ if (c.empty()) {
 
 该函数与`find()`函数的区别在于，该函数永远不会返回空集合；但是，如果屏幕上一直没有出现满足条件的控件，则该函数会保持阻塞。
 
-## UiSelector.exists()
+### UiSelector.exists()
 
 - 返回 \{Boolean}
 
@@ -684,7 +684,7 @@ if (text("某个文本").exists()) {
 }
 ```
 
-## UiSelector.waitFor()
+### UiSelector.waitFor()
 
 等待屏幕上出现符合条件的控件；在满足该条件的控件出现之前，该函数会一直保持阻塞。
 
@@ -694,7 +694,7 @@ if (text("某个文本").exists()) {
 textContains("哈哈哈").waitFor();
 ```
 
-## UiSelector.filter(f)
+### UiSelector.filter(f)
 
 - `f` \{Function} 过滤函数，参数为 UiObject，返回值为 boolean
 
@@ -708,13 +708,13 @@ var uc = className("TextView").filter(function (w) {
 });
 ```
 
-# UiObject
+## UiObject
 
 UiObject 表示一个控件，可以通过这个对象获取到控件的属性，也可以对控件进行点击、长按等操作。
 
 获取一个 UiObject 通常通过选择器的`findOne()`, `findOnce()`等函数，也可以通过 UiCollection 来获取，或者通过`UiObject.child()`, `UiObject.parent()`等函数来获取一个控件的子控件或父控件。
 
-## UiObject.click()
+### UiObject.click()
 
 - 返回 \{Boolean}
 
@@ -722,7 +722,7 @@ UiObject 表示一个控件，可以通过这个对象获取到控件的属性�
 
 如果该函数返回 false，可能是该控件不可点击(clickable 为 false)，当前界面无法响应该点击等。
 
-## UiObject.longClick()
+### UiObject.longClick()
 
 - 返回 \{Boolean}
 
@@ -730,7 +730,7 @@ UiObject 表示一个控件，可以通过这个对象获取到控件的属性�
 
 如果该函数返回 false，可能是该控件不可点击(longClickable 为 false)，当前界面无法响应该点击等。
 
-## UiObject.setText(text)
+### UiObject.setText(text)
 
 - `text` \{string} 文本
 - 返回 \{Boolean}
@@ -739,7 +739,7 @@ UiObject 表示一个控件，可以通过这个对象获取到控件的属性�
 
 该函数只对可编辑的输入框(editable 为 true)有效。
 
-## UiObject.copy()
+### UiObject.copy()
 
 - 返回 \{Boolean}
 
@@ -759,13 +759,13 @@ if (et.copy()) {
 }
 ```
 
-## UiObject.cut()
+### UiObject.cut()
 
 对输入框文本的选中内容进行剪切，并返回是否操作成功。
 
 该函数只能用于输入框控件，并且当前输入框控件有选中的文本。可以通过`setSelection()`函数来设置输入框选中的内容。
 
-## UiObject.paste()
+### UiObject.paste()
 
 - 返回 \{Boolean}
 
@@ -778,7 +778,7 @@ var et = className("EditText").findOne();
 et.paste();
 ```
 
-## UiObject.setSelection(start, end)
+### UiObject.setSelection(start, end)
 
 - `start` \{number} 选中内容起始位置
 - `end` \{number} 选中内容结束位置(不包括)
@@ -790,7 +790,7 @@ et.paste();
 
 该函数也可以用来设置光标位置，只要参数的 end 等于 start，即可把输入框光标设置在 start 的位置。例如`et.setSelection(1, 1)`会把光标设置在第一个字符的后面。
 
-## UiObject.scrollForward()
+### UiObject.scrollForward()
 
 - 返回 \{Boolean}
 
@@ -798,7 +798,7 @@ et.paste();
 
 向前滑动包括了向右和向下滑动。如果一个控件既可以向右滑动和向下滑动，那么执行`scrollForward()`的行为是未知的(这是因为 Android 文档没有指出这一点，同时也没有充分的测试可供参考)。
 
-## UiObject.scrollBackward()
+### UiObject.scrollBackward()
 
 - 返回 \{Boolean}
 
@@ -806,43 +806,43 @@ et.paste();
 
 向后滑动包括了向右和向下滑动。如果一个控件既可以向右滑动和向下滑动，那么执行`scrollForward()`的行为是未知的(这是因为 Android 文档没有指出这一点，同时也没有充分的测试可供参考)。
 
-## UiObject.select()
+### UiObject.select()
 
 - 返回 \{Boolean}
 
 对控件执行"选中"操作，并返回是否操作成功。"选中"和`isSelected()`的属性相关，但该操作十分少用。
 
-## UiObject.collapse()
+### UiObject.collapse()
 
 - 返回 \{Boolean}
 
 对控件执行折叠操作，并返回是否操作成功。
 
-## UiObject.expand()
+### UiObject.expand()
 
 - 返回 \{Boolean}
 
 对控件执行操作，并返回是否操作成功。
 
-## UiObject.show()
+### UiObject.show()
 
 对集合中所有控件执行显示操作，并返回是否全部操作成功。
 
-## UiObject.scrollUp()
+### UiObject.scrollUp()
 
 对集合中所有控件执行向上滑的操作，并返回是否全部操作成功。
 
-## UiObject.scrollDown()
+### UiObject.scrollDown()
 
 对集合中所有控件执行向下滑的操作，并返回是否全部操作成功。
 
-## UiObject.scrollLeft()
+### UiObject.scrollLeft()
 
 对集合中所有控件执行向左滑的操作，并返回是否全部操作成功。
 
-## UiObject.scrollRight()
+### UiObject.scrollRight()
 
-## children()
+### children()
 
 - 返回 [UiCollection](#uicollection)
 
@@ -857,13 +857,13 @@ className("AbsListView")
   });
 ```
 
-## childCount()
+### childCount()
 
 - 返回 \{number}
 
 返回子控件数目。
 
-## child(i)
+### child(i)
 
 - i \{number} 子控件索引
 - 返回 \{UiObject}
@@ -882,13 +882,13 @@ for (var i = 0; i < list.childCount(); i++) {
 }
 ```
 
-## parent()
+### parent()
 
 - 返回 \{UiObject}
 
 返回该控件的父控件。如果该控件没有父控件，返回`null`。
 
-## bounds()
+### bounds()
 
 - 返回 [Rect](https://hyb1996.github.io/AutoJs-Docs/widgets-based-automation.html#rect)
 
@@ -909,31 +909,31 @@ click(b.centerX(), b.centerY());
 //如果使用root权限，则用 Tap(b.centerX(), b.centerY());
 ```
 
-## boundsInParent()
+### boundsInParent()
 
 - 返回 [Rect](https://hyb1996.github.io/AutoJs-Docs/widgets-based-automation.html#rect)
 
 返回控件在父控件中的范围，其值是一个[Rect](https://hyb1996.github.io/AutoJs-Docs/widgets-based-automation.html#rect)对象。
 
-## drawingOrder()
+### drawingOrder()
 
 - 返回 \{number}
 
 返回控件在父控件中的绘制次序。该函数在安卓 7.0 及以上才有效，7.0 以下版本调用会返回 0。
 
-## id()
+### id()
 
 - 返回 \{string}
 
 获取控件的 id，如果一个控件没有 id，则返回`null`。
 
-## text()
+### text()
 
 - 返回 \{string}
 
 获取控件的文本，如果控件没有文本，返回`""`。
 
-## findByText(str)
+### findByText(str)
 
 - `str` \{string} 文本
 - 返回 [UiCollection](#uicollection)
@@ -942,7 +942,7 @@ click(b.centerX(), b.centerY());
 
 该函数会在当前控件的子控件，孙控件，曾孙控件...中搜索 text 或 desc 包含 str 的控件，并返回它们组合的集合。
 
-## findOne(selector)
+### findOne(selector)
 
 - `selector` [UiSelector](#uiselector)
 - 返回 [UiOobject](#uiobject)
@@ -972,14 +972,14 @@ list.children().forEach(function (child) {
 });
 ```
 
-## find(selector)
+### find(selector)
 
 - `selector` [UiSelector](#uiselector)
 - 返回 [UiCollection](#uicollection)
 
 根据选择器 selector 在该控件的子控件、孙控件...中搜索符合该选择器条件的控件，并返回它们组合的集合。
 
-# UiCollection
+## UiCollection
 
 UiCollection, 控件集合, 通过选择器的`find()`, `untilFind()`方法返回的对象。
 
@@ -1015,7 +1015,7 @@ UiCollection 的每一个元素都是 UiObject，我们可以取出他的元素�
 
 因此，UiCollection 具有所有 UiObject 对控件操作的函数，包括`click()`, `longClick()`, `scrollForward()`等等，不再赘述。
 
-## UiCollection.size()
+### UiCollection.size()
 
 - 返回 \{number}
 
@@ -1023,7 +1023,7 @@ UiCollection 的每一个元素都是 UiObject，我们可以取出他的元素�
 
 历史遗留函数，相当于属性 length。
 
-## UiCollection.get(i)
+### UiCollection.get(i)
 
 - `i` \{number} 索引
 - 返回 [UiObject](#uiobject)
@@ -1032,7 +1032,7 @@ UiCollection 的每一个元素都是 UiObject，我们可以取出他的元素�
 
 历史遗留函数，建议直接使用数组下标的方式访问元素。
 
-## UiCollection.each(func)
+### UiCollection.each(func)
 
 - `func` \{Function} 遍历函数，参数为 UiObject。
 
@@ -1040,19 +1040,19 @@ UiCollection 的每一个元素都是 UiObject，我们可以取出他的元素�
 
 历史遗留函数，相当于`forEach`。参考[forEach](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)。
 
-## empty()
+### empty()
 
 - 返回 \{Boolean}
 
 返回控件集合是否为空。
 
-## nonEmpty()
+### nonEmpty()
 
 - 返回 \{Boolean}
 
 返回控件集合是否非空。
 
-## UiCollection.find(selector)
+### UiCollection.find(selector)
 
 - `selector` [UiSelector](#uiselector)
 - 返回 [UiCollection](#uicollection)
@@ -1069,72 +1069,72 @@ var names = id("name").find();
 var clickableNames = names.find(clickable());
 ```
 
-## UiCollection.findOne(selector)
+### UiCollection.findOne(selector)
 
 - `selector` [UiSelector](#uiselector)
 - 返回 [UiOobject](#uiobject)
 
 根据选择器 selector 在该控件集合的控件的子控件、孙控件...中搜索符合该选择器条件的控件，并返回找到的第一个控件；如果没有找到符合条件的控件则返回`null`。
 
-# Rect
+## Rect
 
 `UiObject.bounds()`, `UiObject.boundsInParent()`返回的对象。表示一个长方形(范围)。
 
-## Rect.left
+### Rect.left
 
 - \{number}
 
 长方形左边界的 x 坐标、
 
-## Rect.right
+### Rect.right
 
 - \{number}
 
 长方形右边界的 x 坐标、
 
-## Rect.top
+### Rect.top
 
 - \{number}
 
 长方形上边界的 y 坐标、
 
-## Rect.bottom
+### Rect.bottom
 
 - \{number}
 
 长方形下边界的 y 坐标、
 
-## Rect.centerX()
+### Rect.centerX()
 
 - 返回 \{number}
 
 长方形中点 x 坐标。
 
-## Rect.centerY()
+### Rect.centerY()
 
 - 返回 \{number}
 
 长方形中点 y 坐标。
 
-## Rect.width()
+### Rect.width()
 
 - 返回 \{number}
 
 长方形宽度。通常可以作为控件宽度。
 
-## Rect.height()
+### Rect.height()
 
 - 返回 \{number}
 
 长方形高度。通常可以作为控件高度。
 
-## Rect.contains(r)
+### Rect.contains(r)
 
 - r [Rect](#rect)
 
 返回是否包含另一个长方形 r。包含指的是，长方形 r 在该长方形的里面(包含边界重叠的情况)。
 
-## Rect.intersect(r)
+### Rect.intersect(r)
 
 - r [Rect](#rect)
 

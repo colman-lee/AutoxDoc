@@ -1,6 +1,6 @@
 # Termux Api
 
-> v7.1.7 新增
+> v7.1.8 新增
 
 termux 模块提供了与 [termuxApp](https://f-droid.org/packages/com.termux/) 交互的能力，
 
